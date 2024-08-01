@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life with Friends</title>
+    <style>
+/* General Body Styling */
+body {
+    max-width: 100%;
+    max-height: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f0f2f5;
+    background-image: url('abc.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Cover the entire body */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Fix the background image */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    background-color: rgba(0, 77, 153, 0.8); /* Slightly transparent background */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    scroll-behavior: smooth;
+    animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #ffcc00;
+    }
+    to {
+        text-shadow: 0 0 20px #ffcc00;
+    }
+}
+
+nav {
+    margin: 10px 0;
+    scroll-behavior: smooth;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+.main-content {
+    padding-top: 90px; /* Space for fixed header */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    scroll-behavior: smooth;
+}
+
+/* Section Styling */
+section {
+    padding: 60px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.356); /* Slightly transparent background */
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    animation: fadeInSection 2s ease-in-out;
+}
+
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+    border-radius: 15px; /* Consistent border radius */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+section img:hover {
+    transform: scale(1.05) rotate(2deg); /* Slight zoom and rotate */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Container Styling */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    animation: fadeInContainer 1s ease-in-out;
+}
+
+@keyframes fadeInContainer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header and Paragraphs Styling */
+h1, h2 {
+    color: #004d99;
+    font-size: 2em; /* Increased font size for h1 and h2 */
+    animation: textColorChange 3s infinite;
+}
+
+@keyframes textColorChange {
+    0% {
+        color: #004d99;
+    }
+    50% {
+        color: #ffcc00;
+    }
+    100% {
+        color: #004d99;
+    }
+}
+
+p {
+    font-size: 1.2em; /* Increased font size for p tags */
+    color: #666;
+    animation: textGlow 2s infinite alternate;
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00;
+    }
+    to {
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+    }
+}
+
+footer {
+    background-color: rgba(0, 77, 153, 0.8); /* Slightly transparent background */
+    color: #ffffff6b;
+    text-align: center;
+    padding: 10px 20px;
+    position: relative;
+    bottom: 0;
+    scroll-behavior: smooth;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    background: #e6f7ff7e;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    scroll-behavior: smooth;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.contact-form h2 {
+    margin-top: 0;
+    color: #004d99;
+    animation: fadeInText 1s ease-in-out;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #004d99;
+    outline: none;
+}
+
+.contact-form button {
+    background-color: #004d99;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+    width: 100%;
+}
+
+.contact-form button:hover {
+    background-color: #003366;
+    transform: scale(1.05);
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    color: #333;
+}
+
+/* My Friends Section Styles */
+.friends {
+    background-color: #ffffff48;
+    padding: 60px 20px;
+    text-align: center;
+    scroll-behavior: smooth;
+    animation: fadeInSection 1s ease-in-out;
+}
+
+.friends h2 {
+    color: #004d99;
+}
+
+.friends-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.friend {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    scroll-behavior: smooth;
+    transition: transform 0.3s;
+}
+
+.friend:hover {
+    transform: scale(1.05);
+}
+
+.friend img {
+    width: 120px; /* Adjusted size */
+    height: 120px; /* Adjusted size */
+    object-fit: cover; /* Ensure aspect ratio is preserved */
+    border-radius: 50%;
+    border: 3px solid #004d99;
+    transition: transform 0.5s ease;
+}
+
+.friend img:hover {
+    transform: scale(1.1) rotate(2deg); /* Slight zoom and rotate */
+}
+
+.friend-images {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.friend-images img {
+    width: 100px; /* Adjusted size for the smaller image */
+    height: 100px; /* Adjusted size for the smaller image */
+    border-radius: 8px;
+    border: 2px solid #004d99;
+}
+
+.friend h3 {
+    margin: 15px 0 5px;
+    color: #333;
+}
+
+.friend p {
+    color: #666;
+    font-size: 1.2em; /* Increased font size */
+    font-weight: 600; /* Increased font weight */
+    animation: textGlow 2s infinite alternate;
+}
+
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00, 0 0 20px #ffcc00, 0 0 25px #ffcc00, 0 0 30px #ffcc00;
+        color: #333;
+    }
+    to {
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00, 0 0 40px #ffcc00, 0 0 50px #ffcc00, 0 0 60px #ffcc00;
+        color: #000;
+    }
+}
+
+.gro, .gro1, .gro2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-size: xx-large;
+    font-weight: 700;
+    padding: 1cm;
+    scroll-behavior: smooth;
+    text-align: center;
+}
+
+.gro {
+    color: #004d99;
+}
+
+.gro1 {
+    color: #004d99;
+}
+
+.gro2 {
+    color: #ffd700;
+    background-color: #333;
+    padding: 1cm;
+    border-radius: 8px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Life with Friends</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#early-friendships">Early Friendships</a></li>
+                    <li><a href="#adolescent-friendships">Adolescent Friendships</a></li>
+                    <li><a href="#adult-friendships">Adult Friendships</a></li>
+                    <li><a href="#challenges">Challenges</a></li>
+                    <li><a href="#importance">Importance</a></li>
+                    <li><a href="#friends">Friends</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <section id="home">
+            <div class="container">
+                <h2>Welcome to my Life with my Friends</h2>
+                <p>Explore the various stages of friendship and their significance throughout different phases of life. This page provides insights into early friendships, adolescent friendships, adult friendships, the challenges they face, and why they are important for overall well-being.</p>
+                <img src="ae.jpg" alt="Life of Friends">
+                <div class="gro2">Mine brothers are You all not friends only .</div>
+            </div>
+        </section>
+        
+        <section id="introduction">
+            <div class="container">
+                <div class="gro"><h2>Introduction</h2></div>
+                <p>Friendships are a crucial part of human life. They provide support, companionship, and joy throughout different stages of life. This page explores the different phases of friendship and their significance.</p>
+
+            </div>
+            <div class="gro">
+                <a href="a.jpg" >MYself</a>
+            </div>
+            <div class="gro1">
+                1: Rojit Khan<br>
+                2: Dhiraj Yadav<br>
+                3: Shiv Yadav<br>
+                4: Aayush Karn<br>
+                5: Danish Hakim<br>
+                6: Saksaham Karki<br>
+                7: Sudhir Yadav<br>
+                8: Alish Yadav
+            </div> 
+            <div class="gro2">Life without friends is just like a joke</div>
+        </section>
+        
+        <section id="early-friendships">
+            <div class="container">
+                <h2>Early Friendships</h2>
+                <p>In early childhood, friendships often form around shared activities and play. These early friendships help children learn about social interaction, empathy, and cooperation.</p>
+                <img src="ah (4).jpg" alt="Early Friendships">
+                <div class="gro2">MY life is alone without You all brothers.</div>
+            </div>
+        </section>
+        
+        <section id="adolescent-friendships">
+            <div class="container">
+                <h2>Adolescent Friendships</h2>
+                <p>During adolescence, friendships become more complex and emotionally significant. Teenagers seek deeper connections, navigate peer pressure, and explore their identities through their friendships.</p>
+                <img src="ah (7).jpg" alt="Adolescent Friendships">
+                <div class="gro2"> Either we are in different place but our heart is in same place brothers.</div>
+            </div>
+        </section>
+        
+        <section id="adult-friendships">
+            <div class="container">
+                <h2>Adult Friendships</h2>
+                <p>In adulthood, friendships often evolve into more stable and enduring relationships. They provide support in facing life's challenges and play a significant role in personal growth and happiness.</p>
+                <img src="ah (1).jpg" alt="Adult Friendships">
+                <div class="gro2"> Without you all I am not servive in the earth brothers.</div>
+            </div>
+        </section>
+        
+        <section id="challenges">
+            <div class="container">
+                <h2>Challenges in Friendships</h2>
+                <p>Friendships can face challenges such as distance, misunderstandings, or changing priorities. It’s important to address these challenges openly to maintain strong, healthy relationships.</p>
+                <img src="ah (2).jpg" alt="Challenges in Friendships">
+                <div class="gro2">No one can destory our brotherhood because we are heart of one another. </div>
+            </div>
+        </section>
+        
+        <section id="importance">
+            <div class="container">
+                <h2>Importance of Friendships</h2>
+                <p>Friendships enrich our lives, offering emotional support, joy, and a sense of belonging. They are essential for mental health and overall well-being.</p>
+                <img src="ah (3).jpg" alt="Importance of Friendships">
+                <div class="gro2">In my words sucess  without friends is possible but that sucess is meaning less.</div>
+            </div>
+        </section>
+        
+        <section id="friends">
+            <div class="friends">
+                <h2>My Friends</h2>
+                <div class="friends-grid">
+                    <div class="friend">
+                        <div class="friend-images">
+                            <img src="ad.jpg" alt="Friend 1 - Photo 1">
+                            <img src="da.jpg" alt="Friend 1 - Photo 2">
+                        </div>
+                        <h3>Rojit Khan</h3>
+                        <p>One of my closest friends since school days.</p>
+                    </div>
+                    <div class="friend">
+                        <div class="friend-images">
+                            <img src="ac.jpg" alt="Friend 2 - Photo 1">
+                            <img src="ca1.jpg" alt="Friend 2 - Photo 2">
+                        </div>
+                        <h3>Dhiraj Yadav</h3>
+                        <p>A great friend who shares my passion for music.</p>
+                    </div>
+                    <div class="friend">
+                        <div class="friend-images">
+                            <img src="ba.jpg" alt="Friend 3 - Photo 1">
+                            <img src="ab1.jpg" alt="Friend 3 - Photo 2">
+                        </div>
+                        <h3>Shiv Yadav</h3>
+                        <p>Always there for support and laughter.</p>
+                    </div>
+                    <div class="friend">
+                        <div class="friend-images">
+                            <img src="ab.jpg" alt="Friend 4 - Photo 1">
+                            <img src="ba1.jpg" alt="Friend 4 - Photo 2">
+                        </div>
+                        <h3>Aayush Karn</h3>
+                        <p>My travel buddy and adventure seeker.</p>
+                    </div>
+                    <div class="friend">
+                        <div class="friend-images">
+                            <img src="bc.webp " alt="Friend 5 - Photo 1">
+                            <img src=" bc.webp" alt="Friend 5 - Photo 2">
+                        </div>
+                        <h3>Danish Hakim</h3>
+                        <p>Our shared interests keep our bond strong.</p>
+                    </div>
+                    <div class="friend">
+                        <div class="friend-images">
+                            <img src="bd.jpg" alt="Friend 6 - Photo 1">
+                            <img src="db1.jpg" alt="Friend 6 - Photo 2">
+                        </div>
+                        <h3>Saksaham Karki</h3>
+                        <p>Always brings positivity and motivation.</p>
+                    </div>
+                    <div class="friend">
+                        <div class="friend-images">
+                            <img src="aa.jpg" alt="Friend 7 - Photo 1">
+                            <img src="kk.jpg" alt="Friend 7 - Photo 2">
+                        </div>
+                        <h3>Sudhir Yadav</h3>
+                        <p>A loyal friend with a great sense of humor.</p>
+                    </div>
+                    <div class="friend">
+                        <div class="friend-images">
+                            <img src="bb.jpg" alt="Friend 8 - Photo 1">
+                            <img src="bb1.jpg" alt="Friend 8 - Photo 2">
+                        </div>
+                        <h3>Alish Yadav</h3>
+                        <p>Our friendship is filled with great memories.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <div class="container">
+                <div class="contact-form">
+                    <h2>Contact Me</h2>
+                    <form action="#" method="post">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                    <div class="contact-info">
+                        <p>Email:abhiaaa1230@gmail.com</p>
+                        <p><Phone:NCELL>+9779822349129</Phone:NCELL></p>
+                        <p><address>Rajbiraj-8,saptari,Nepal</address></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Life with Friends. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
